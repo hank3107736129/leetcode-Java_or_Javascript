@@ -1,0 +1,13 @@
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+        //corner case 
+        if(nums.length==0)return 0;
+        int slow=1;
+        for(int fast=1;fast<nums.length;fast++){
+            if(nums[slow-1]!=nums[fast]){
+                nums[slow++]=nums[fast];
+            }
+        }
+        return slow;
+    }
+}

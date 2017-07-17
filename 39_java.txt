@@ -1,0 +1,20 @@
+public class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res=new ArrayList<List<Integer>();
+        if(candidates==null||candidates.length==0)return res;
+        Arrays.sort(candidates);
+         helper(candidates,target, res, new Array<Integer>(),0,0);
+        return res;
+    }
+    public void helper(int[] cad, int target, List<List<Integer> res, List<Integer> cur, int index,int curSum){
+        //base case 
+        if(curSum==target){
+            res.add(new ArrayList<Integer>(cur));
+            return res;
+        }
+        if(curSum>target||index>=cad.length)return;
+        
+        for(int i=index;i<cad.length;i++)
+    }
+    
+}

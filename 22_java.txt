@@ -1,0 +1,32 @@
+public class Solution {
+    public List<String> generateParenthesis(int n) {
+        //base case 
+         if(n<=0)return null;
+         List<String> res=new ArrayList<String>();
+         DFS(n,0,0,0,res,new StringBuilder());
+         return res;
+    }
+    public void DFS(int n, int l, int r, int step, List<String> res, StringBuilder sb){
+        //base case
+          if(step==2*n&&l==r){
+              res.add(sb.toString());
+              return;
+          }
+          if(step>=2*n||l>n||l<r){
+              return;
+          }
+          if(l<n){
+              sb.append("(");
+              DFS(n,l+1,r,step+1,res,sb);
+              sb.setLength(sb.length()-1);
+              
+          }
+          if(r<l){
+              sb.append(")");
+              DFS(n,l,r+1,step+1,res,sb);
+              sb.setLength(sb.length()-1);
+          }
+        
+        
+    }
+}

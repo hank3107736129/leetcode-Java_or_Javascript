@@ -1,0 +1,21 @@
+var solution = function(isBadVersion) {
+   
+    return function(n) {
+        var beg = 0;
+        var end = n;
+        var lastBad;
+        
+        while(beg <= end) {
+            var mid = beg + Math.floor((end - beg)/2);
+            if(isBadVersion(mid)) {
+                
+                lastBad = mid;
+                end = mid - 1;
+            } else {
+                beg = mid + 1; 
+            }
+        }
+        
+        return lastBad;
+    };
+};

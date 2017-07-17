@@ -1,0 +1,23 @@
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+        int numOfDup = 1;
+        int pointer = 0;
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]==nums[pointer]){
+                if(numOfDup==2){
+                    continue;
+                }
+                else{
+                numOfDup++;
+                }
+            }
+            else{
+                numOfDup =1; 
+            }
+            
+            pointer++;
+            nums[pointer] = nums[i];
+        } // end of for loop
+        return pointer+1;
+    }
+}
